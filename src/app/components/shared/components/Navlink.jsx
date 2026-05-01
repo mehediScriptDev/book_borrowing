@@ -1,11 +1,15 @@
-
+"use client"
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Navlink = ({ href, children }) => {
+    const pathname = usePathname();
     return (
         <div>
-            <Link href={href}>{children}</Link>
+            <Link className={pathname === href ? "border-b-2 border-primaryy" : ""} href={href}>
+                {children}
+            </Link>
         </div>
     );
 };

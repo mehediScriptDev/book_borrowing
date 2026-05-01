@@ -1,14 +1,10 @@
-import Navbar from "@/app/components/shared/Navbar";
-import Image from "next/image";
-import { Children } from "react";
+import Hero from "@/app/(main)/components/home/Hero";
 
-export default function Home({ children }) {
+
+export default function Home() {
   return (
-    <div className="">
-      <Navbar/>
-      <main className="w-11/12 mx-auto">
-       {children}
-      </main>
+    <div>
+      <Hero/>
     </div>
   );
 }

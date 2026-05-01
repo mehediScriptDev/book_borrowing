@@ -1,4 +1,5 @@
 import Navlink from "@/app/components/shared/components/Navlink";
+import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
@@ -8,10 +9,10 @@ const Navbar = () => {
         <Navlink href="/">Home</Navlink>
       </li>
       <li>
-        <Navlink href="/about">All Books</Navlink>
+        <Navlink href="/allBooks">All Books</Navlink>
       </li>
       <li>
-        <Navlink href="/contact">My Profile</Navlink>
+        <Navlink href="/myProfile">My Profile</Navlink>
       </li>
     </>
   );
@@ -45,7 +46,10 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost font-bold text-xl">Mango<span className="text-primaryy">Bookish</span></a>
+          <Link href="/" className="font-bold text-xl">
+            <span>Mango</span>
+            <span className="text-primaryy">Bookish</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal text-sm font-semibold px-1">
@@ -53,7 +57,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className=" bg-primaryy text-white rounded-full px-4 py-1">Login</a>
+          <a className=" bg-primaryy cursor-pointer text-white rounded-full px-4 py-1 active:scale-95">Login</a>
         </div>
       </div>
     </div>
