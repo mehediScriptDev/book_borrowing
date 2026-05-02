@@ -121,16 +121,6 @@ const AllBooks = () => {
                 </div>
               </div>
             )}
-
-            {/* Results Count */}
-            {filteredBooks.length > 0 && (
-              <div className="mt-8 text-center text-base-content/60">
-                <p>
-                  Showing <span className="font-semibold text-primaryy">{filteredBooks.length}</span> of{" "}
-                  <span className="font-semibold">{books.length}</span> books
-                </p>
-              </div>
-            )}
           </div>
         </div>
       </div>
