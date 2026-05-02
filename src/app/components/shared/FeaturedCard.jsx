@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const FeaturedCard = ({book}) => {
@@ -33,9 +34,9 @@ const FeaturedCard = ({book}) => {
               Available:{" "}
               <span className="font-medium text-red-300">{available_quantity} copies</span>
             </span>
-            <button className="btn btn-outline btn-sm bg-primaryy text-white rounded-full">
-              Borrow
-            </button>
+            <Link href={`/allBooks/${book.id}`} className="btn btn-outline btn-sm bg-primaryy text-white rounded-full">
+              Details
+            </Link>
           </div>
         </div>
       </div>
