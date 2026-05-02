@@ -57,7 +57,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className=" bg-primaryy cursor-pointer text-white rounded-full px-4 py-1 active:scale-95">Login</a>
+          <Link href="/login" className=" bg-primaryy cursor-pointer text-white rounded-full px-4 py-1 active:scale-95">
+            Login
+          </Link>
         </div>
       </div>
     </div>
