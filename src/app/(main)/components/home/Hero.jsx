@@ -17,7 +17,7 @@ const Hero = () => {
           <p className="mb-5 font-semibold text-base md:text-lg text-center lg:text-xl">
             Dive into a world of endless stories. Whether you're chasing adventure, seeking wisdom, or escaping reality your perfect book is waiting. Explore and read
           </p>
-          <Link href="/allBooks" className="btn hover:scale-105 xl:btn-md shadow-none active:scale-90 bg-primaryy text-white border-none rounded-full">
+          <Link href="/allBooks" className="btn animate animate-pulse hover:scale-105 xl:btn-md shadow-none active:scale-90 bg-primaryy text-white border-none rounded-full">
             Browse Now
           </Link>
         </div>

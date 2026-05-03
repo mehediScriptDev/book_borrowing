@@ -1,10 +1,14 @@
 "use client";
 import Swal from "sweetalert2";
 import { BookOpen } from "lucide-react";
-import { useParams } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { useParams, useRouter } from "next/navigation";
 import books from "../../../../../public/books.json";
 
+
 const BookDetails = () => {
+  const router =useRouter();
+  const { data: session } = authClient.useSession();
   const params = useParams();
   const book = books.find((book) => book.id == params.id);
   const {
@@ -16,15 +20,19 @@ const BookDetails = () => {
     image_url,
   } = book;
 
-  const alertfire = () => {
+ const handleBorrow = () => {
+    if (!session) {
+      router.push("/login"); 
+      return;
+    }
     Swal.fire({
-  position: "center",
-  icon: "success",
-  title: "Borrow request submitted!",
-  iconColor: "#f97316",
-  showConfirmButton: false,
-  timer: 1500
-});
+      position: "center",
+      icon: "success",
+      title: "Borrow request submitted!",
+      iconColor: "#f97316",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
   return (
     <section className="py-8 px-4 container mx-auto">
@@ -86,7 +94,7 @@ const BookDetails = () => {
             </div>
 
             <div>
-              <button onClick={alertfire} className="btn w-auto btn-block bg-primaryy text-white border-none rounded-full gap-2">
+              <button onClick={handleBorrow} className="btn w-auto btn-block bg-primaryy text-white border-none rounded-full gap-2">
                 <BookOpen size={16} />
                 Borrow this book
               </button>

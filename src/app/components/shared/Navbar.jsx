@@ -1,8 +1,13 @@
+
 import Navlink from "@/app/components/shared/components/Navlink";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
+import LogOut from "@/app/components/shared/components/LogOut";
 
-const Navbar = () => {
+const Navbar = async () => {
   const links = (
     <>
       <li>
@@ -16,6 +21,11 @@ const Navbar = () => {
       </li>
     </>
   );
+const session = await auth.api.getSession({
+    headers: await headers() 
+
+  });
+
 
   return (
     <div className="bg-base-100 shadow-sm">
@@ -57,9 +67,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href="/login" className=" bg-primaryy cursor-pointer text-white rounded-full px-4 py-1 active:scale-95">
-            Login
-          </Link>
+          {session ? <LogOut /> : <Link href="/login" className="bg-primaryy cursor-pointer text-white rounded-full px-4 py-1 active:scale-95">Login</Link>}
         </div>
       </div>
     </div>

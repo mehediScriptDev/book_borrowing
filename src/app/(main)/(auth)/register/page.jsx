@@ -38,6 +38,9 @@ const Register = () => {
     if (error) return showError(error.message || "Registration failed!");
     router.push("/login");
   };
+  const handleGoogle = async () => {
+    await authClient.signIn.social({ provider: "google", callbackURL: "/" });
+  };
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 px-4">
       <div className="bg-base-100 border border-base-200 rounded-2xl p-8 w-full max-w-md">
@@ -126,7 +129,7 @@ const Register = () => {
 
         <div className="divider text-xs">or</div>
 
-        <button className="btn mb-4 rounded-full w-full bg-white text-black border-[#e5e5e5]">
+        <button onClick={handleGoogle} className="btn mb-4 rounded-full w-full bg-white text-black border-[#e5e5e5]">
           <svg
             aria-label="Google logo"
             width="16"

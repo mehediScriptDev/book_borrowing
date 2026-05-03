@@ -3,10 +3,16 @@
 import React from "react";
 import FeaturedCard from "@/app/components/shared/FeaturedCard";
 import CategorySidebar from "@/app/(main)/components/home/CategorySidebar";
+import { animated, useSpring } from "@react-spring/web";
 
 
 
 const AllBooks = () => {
+  const animation = useSpring({
+    from: { opacity: 0, y: 40 },
+    to: { opacity: 1, y: 0 },
+    config: { tension: 12, friction: 14 },
+  });
   const [books, setBooks] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
   const [activeCategory, setActiveCategory] = React.useState(null);
@@ -66,7 +72,7 @@ const AllBooks = () => {
           </div>
 
           {/* Books Grid */}
-          <div className="lg:col-span-3">
+          <animated.div style={animation} className="lg:col-span-3">
             {filteredBooks.length > 0 ? (
               <div className="grid grid-cols-1 min-[420px]:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
                 {filteredBooks.map((book) => (
@@ -84,7 +90,7 @@ const AllBooks = () => {
                 </div>
               </div>
             )}
-          </div>
+          </animated.div>
         </div>
       </div>
     </div>
