@@ -4,25 +4,40 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
 import { error } from "better-auth/api";
+import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 // import { signUp, signIn } from "@/lib/auth-client";
 
 const Register = () => {
-    const {
+  const showError = (message) => {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Oops!",
+      text: message,
+      iconColor: "#f97316",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  };
+  const router = useRouter();
+  const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
-const onSubmit = async (data) => {
-  const { data: res, error } = await authClient.signUp.email({
-    name: data.name,
-    email: data.email,
-    password: data.password,
-    image: data.image,
-    callbackURL: "/",
-  });
-  console.log(res, error);
-};
+  } = useForm();
+  const onSubmit = async (data) => {
+    const { data: res, error } = await authClient.signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      image: data.image,
+      callbackURL: "/",
+    });
+    if (error) return showError(error.message || "Registration failed!");
+    router.push("/login");
+  };
   return (
     <section className="min-h-screen flex items-center justify-center bg-base-200 px-4">
       <div className="bg-base-100 border border-base-200 rounded-2xl p-8 w-full max-w-md">
@@ -32,8 +47,6 @@ const onSubmit = async (data) => {
             Join MangoBookish today
           </p>
         </div>
-
-        
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control flex flex-col gap-2 mb-3">
@@ -47,7 +60,11 @@ const onSubmit = async (data) => {
               {...register("name", { required: "Name is required" })}
               required
             />
-            {errors.name && <div className="alert alert-error text-sm mb-4">{errors.name.message}</div>}
+            {errors.name && (
+              <div className="alert alert-error text-sm mb-4">
+                {errors.name.message}
+              </div>
+            )}
           </div>
           <div className="form-control flex flex-col gap-2 mb-3">
             <label className="label">
@@ -60,7 +77,11 @@ const onSubmit = async (data) => {
               {...register("email", { required: "Email is required" })}
               required
             />
-            {errors.email && <div className="alert alert-error text-sm mb-4">{errors.email.message}</div>}
+            {errors.email && (
+              <div className="alert alert-error text-sm mb-4">
+                {errors.email.message}
+              </div>
+            )}
           </div>
           <div className="form-control flex flex-col gap-2 mb-3">
             <label className="label">
@@ -72,7 +93,11 @@ const onSubmit = async (data) => {
               className="input input-bordered w-full input-sm  focus:outline-none focus:border-primaryy"
               {...register("image", { required: "Photo URL is required" })}
             />
-            {errors.image && <div className="alert alert-error text-sm mb-4">{errors.image.message}</div>}
+            {errors.image && (
+              <div className="alert alert-error text-sm mb-4">
+                {errors.image.message}
+              </div>
+            )}
           </div>
           <div className="form-control flex flex-col gap-2 mb-5">
             <label className="label">
@@ -85,7 +110,11 @@ const onSubmit = async (data) => {
               {...register("password", { required: "Password is required" })}
               required
             />
-            {errors.password && <div className="alert alert-error text-sm mb-4">{errors.password.message}</div>}
+            {errors.password && (
+              <div className="alert alert-error text-sm mb-4">
+                {errors.password.message}
+              </div>
+            )}
           </div>
           <button
             type="submit"
