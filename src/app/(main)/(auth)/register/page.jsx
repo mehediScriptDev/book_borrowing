@@ -162,6 +162,7 @@ const Register = () => {
           <Link href="/login" className="text-primaryy font-medium">
             Login
           </Link>
+          
         </p>
       </div>
     </section>

@@ -109,6 +109,7 @@ const Login = () => {
           <Link href="/register" className="text-primaryy font-medium">
             Register
           </Link>
+          
         </p>
       </div>
     </section>
