@@ -3,7 +3,7 @@
 A modern digital library platform where readers can discover, explore, and borrow books online. Built with a focus on clean UI, seamless authentication, and smooth user experience.
 
 ## 🌐 Live Demo
-[mangobookish.vercel.app](https://mangobookish.vercel.app)
+[book-borrowing-vert.vercel.app](https://book-borrowing-vert.vercel.app)
 
 ## 🚀 About The Project
 
