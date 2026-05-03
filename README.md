@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MangoBookish 📚
 
-## Getting Started
+A modern digital library platform where readers can discover, explore, and borrow books online. Built with a focus on clean UI, seamless authentication, and smooth user experience.
 
-First, run the development server:
+## 🌐 Live Demo
+[mangobookish.vercel.app](https://mangobookish.vercel.app)
+
+## 🚀 About The Project
+
+MangoBookish started as a personal side project to explore full-stack development with Next.js and modern auth patterns. The idea was simple — build something I'd actually want to use. A clean, fast book borrowing platform that feels native and secure.
+
+The project focuses on:
+- Smooth and secure authentication flows
+- Clean, responsive UI across all devices
+- Fast performance with Next.js App Router
+- Real-world patterns like protected routes and session management
+
+## ✨ Features
+
+- 🔐 Email & Google OAuth authentication via BetterAuth
+- 📖 Browse and search books by title
+- 🗂️ Filter books by category (Story, Tech, Science)
+- 📄 Detailed book pages with availability info
+- 🙋 User profile with update functionality
+- 🔒 Protected routes for authenticated users
+- 📱 Fully responsive on mobile, tablet, and desktop
+- 🎨 Clean UI with DaisyUI + Tailwind CSS
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS + DaisyUI
+- **Authentication:** BetterAuth
+- **Database:** MongoDB
+- **Animation:** React Spring
+- **Form Handling:** React Hook Form
+- **Alerts:** SweetAlert2
+- **Icons:** Lucide React
+
+## 📦 NPM Packages Used
+
+| Package | Purpose |
+|---|---|
+| `better-auth` | Authentication |
+| `react-hook-form` | Form management |
+| `sweetalert2` | Alerts & toasts |
+| `@react-spring/web` | Animations |
+| `lucide-react` | Icons |
+| `mongoose` | MongoDB ODM |
+
+## 🔧 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- MongoDB Atlas account
+- Google OAuth credentials
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/mehediScriptDev/book_borrowing.git
+
+# Install dependencies
+cd book_borrowing
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+```
+
+### Environment Variables
+
+Create a `.env.local` file in the root:
+
+```env
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+MONGO_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
+
+### Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Project Structure
+src/
+├── app/
+│   ├── (main)/
+│   │   ├── (auth)/
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   ├── allBooks/
+│   │   ├── bookDetails/
+│   │   ├── myProfile/
+│   │   └── updateProfile/
+│   ├── api/auth/
+│   └── components/
+├── lib/
+│   ├── auth.js
+│   └── auth-client.js
+└── middleware.js
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 License
 
-## Learn More
+MIT License — feel free to use this project as inspiration for your own.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ by [Mehedi](https://github.com/mehediScriptDev)
